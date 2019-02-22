@@ -4,24 +4,30 @@
 Для заданной пары слов требуется определить, можно ли выполнить последовательность стековых операций, переводящую первое слово во второе. 
 Все буквы в слове различные. Длина анаграммы ≤ 10000.*/
 #include<bits/stdc++.h>
-# define sz(s) int(s.size())
+using namespace std;
 int main()
 {
-    std::string a, b;
-    std::cin >> a >> b;
-    if(sz(a) != sz(b)) std::cout << "NO";
-    else {
-        int left_b = 0;
-		std::deque< char > deq;
-        for(int i = 0, k = sz(a); i < k; i++){
-            deq.push_back(a[i]);
-            while((sz(deq) > 0) && (deq.back() == b[left_b])){
+    string a,b;
+    cin>>a>>b;
+    stack<char>ang;
+    int left_b=0;
+    if(a.size()!=b.size())
+        cout<<"NO";
+    else
+    {
+       for(int i=0;i<a.size();i++)
+       {
+            ang.push(a[i]);
+            while((ang.size() > 0) && (ang.top() == b[left_b]))
+            {
                 left_b++;
-                deq.pop_back();
+                ang.pop();
             }
-        }
-        if(sz(deq) == 0) std::cout << "YES";
-        else std::cout << "NO";
+       }
+       if(ang.size() == 0)
+          cout << "YES";
+       else
+          cout<<"NO";
     }
     return 0;
 }
