@@ -3,16 +3,17 @@
 взять букву из стека и добавить ее в конец выходного слова). 
 Для заданной пары слов требуется определить, можно ли выполнить последовательность стековых операций, переводящую первое слово во второе. 
 Все буквы в слове различные. Длина анаграммы ≤ 10000.*/
+
 #include<bits/stdc++.h>
-using namespace std;
+
 int main()
 {
-    string a,b;
-    cin>>a>>b;
-    stack<char>ang;
+    std::string a,b;
+    std::cin>>a>>b;
+    std::stack<char>ang;
     int left_b=0;
     if(a.size()!=b.size())
-        cout<<"NO";
+        std::cout<<"NO";
     else
     {
        for(int i=0;i<a.size();i++)
@@ -25,9 +26,9 @@ int main()
             }
        }
        if(ang.size() == 0)
-          cout << "YES";
+          std::cout << "YES";
        else
-          cout<<"NO";
+          std::cout<<"NO";
     }
     return 0;
 }
